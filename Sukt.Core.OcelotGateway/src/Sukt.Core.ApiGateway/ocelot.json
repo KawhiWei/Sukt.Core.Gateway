@@ -1,0 +1,34 @@
+﻿{
+  // 全局配置
+  "GlobalConfiguration": {
+    //"BaseUrl": "http://10.1.40.210:30900",
+    "ServiceDiscoveryProvider": { //服务发现提供程序 (新版Ocelot好像不许需要配置：Host，Port，Token) todo 待测试
+      //"Host": "192.168.0.13", //服务发现主机
+      //"Port": 443, //服务发现端口
+      //"Token": "txpc696iUhbVoudg164r93CxDTrKRVWG", //服务发现令牌
+      "Namespace": "etlbigdataservice", //服务发现部署环境
+      "Type": "kube" //服务发现类型
+    }
+  },
+  // K8s Gateway 配置
+  "Routes": [
+    //ETL.DataResource.API Swagger接口配置
+    {
+      "memo": "ETL数据连接服务管理SwaggerUI",
+      "DownstreamPathTemplate": "/doc/ETL.DataResource/v1.0/swagger.json", //上游Swagger配置的模板
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/doc/ETL.DataResource/v1.0/swagger.json", //下游Swagger配置的模板
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      "ServiceName": "etl-dataresource-service" //K8S Service 名称
+    },
+    //ETL.DataResource.API 路由转发配置
+    {
+      "memo": "ETL数据连接服务管理路由转发",
+      "DownstreamPathTemplate": "/eltdataresourceapi/{url}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/eltdataresourceapi/{url}", //匹配地址
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
+      "ServiceName": "etl-dataresource-service" //K8S Service 名称
+    }
+  ]
+}

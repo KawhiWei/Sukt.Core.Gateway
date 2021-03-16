@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sukt.Core.ApiGateway</name>
+    </assembly>
+    <members>
+        <member name="T:Sukt.Core.ApiGateway.AppOptionSettings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Sukt.Core.ApiGateway.CorsOptions">
+            <summary>
+            Cors操作
+            </summary>
+        </member>
+        <member name="P:Sukt.Core.ApiGateway.CorsOptions.PolicyName">
+            <summary>
+            策略名
+            </summary>
+        </member>
+        <member name="P:Sukt.Core.ApiGateway.CorsOptions.Url">
+            <summary>
+            Cors地址
+            </summary>
+        </member>
+        <member name="T:Sukt.Core.ApiGateway.OcelotBuilderExtensions">
+            <summary>
+            Ocelot配置扩展
+            </summary>
+        </member>
+        <member name="M:Sukt.Core.ApiGateway.OcelotBuilderExtensions.AddKubernetesFixed(Ocelot.DependencyInjection.IOcelotBuilder,System.Boolean)">
+            <summary>
+            愉快的使用ocelot了
+            </summary>
+            <param name="builder"></param>
+            <param name="usePodServiceAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sukt.Core.ApiGateway.ServiceCollectionExtension.GetAppSettings(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            得到操作设置
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sukt.Core.ApiGateway.ServiceCollectionExtension.GetService``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            得到注入服务
+            </summary>
+            <typeparam name="TType"></typeparam>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sukt.Core.ApiGateway.ServiceCollectionExtension.IsNullOrEmpty(System.String)">
+            <summary>
+            是否为空或者为null
+            </summary>
+            <param name="value">要判断的值</param>
+            <returns>返回true/false</returns>
+        </member>
+        <member name="T:Sukt.Core.ApiGateway.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sukt.Core.ApiGateway.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Sukt.Core.ApiGateway.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

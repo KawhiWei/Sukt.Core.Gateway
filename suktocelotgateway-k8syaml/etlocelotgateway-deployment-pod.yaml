@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: suktocelot-gateway-pod
+  namespace: etlbigdataservice
+spec:
+  selector:
+    matchLabels:
+      app: suktocelot-gateway-pod
+  template:
+    metadata:
+      labels:
+        app: suktocelot-gateway-pod
+    spec:
+      nodeName: k8swork-node1
+      containers:
+      - name: suktocelot-gateway-api
+        image: 10.1.40.207:9800/suktocelotgateway:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
